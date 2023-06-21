@@ -35,7 +35,7 @@ async function getHubspotAccountDetails(accessToken) {
         } else {
           reject(
             new Error(
-              `Request failed. status: ${res.statusCode}, body: ${body}`
+              `Error while fetching HubSpot account details. Status: ${res.statusCode}. Body: ${body}`
             )
           );
         }
@@ -43,13 +43,21 @@ async function getHubspotAccountDetails(accessToken) {
 
       // Handling error during response
       res.on('error', err => {
-        reject(err);
+        reject(
+          new Error(
+            `Error while fetching HubSpot account details. ${err.message}`
+          )
+        );
       });
     });
 
     // Handling error during request
     req.on('error', err => {
-      reject(err);
+      reject(
+        new Error(
+          `Error while fetching HubSpot account details. ${err.message}`
+        )
+      );
     });
 
     req.end();
@@ -71,7 +79,7 @@ async function getHubspotContacts(hubspotClient, isArchived) {
     return results;
   } catch (err) {
     // If error occurs, throw it to be caught by caller
-    throw err;
+    throw new Error(`Error while fetching HubSpot contacts. ${err.message}`);
   }
 }
 
@@ -102,6 +110,7 @@ function findContactsWithMissingValues(data) {
   return data.filter(
     contact =>
       !contact.email ||
+      contact.email === 'Unknown' ||
       !contact.firstname ||
       contact.firstname === 'Unknown' ||
       !contact.lastname ||

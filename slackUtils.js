@@ -81,7 +81,7 @@ async function sendReportToSlack(slackClient, blocks) {
       blocks: blocks,
     });
   } catch (err) {
-    throw err;
+    throw new Error(`Error while sending report to Slack. ${err.message}`);
   }
 }
 
