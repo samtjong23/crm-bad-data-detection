@@ -4,6 +4,7 @@
   "description": "Data quality tool designed to detect and report on bad data in the contact data of a HubSpot CRM system",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest"
   },
   "author": "Samuel Tjong",
