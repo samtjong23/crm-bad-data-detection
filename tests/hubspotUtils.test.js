@@ -7,7 +7,7 @@ const {
   findContactsWithUnlikelyData,
   getHubspotAccountDetails,
   getHubspotContacts,
-} = require('../hubspotUtils');
+} = require('../utils/hubspotUtils');
 
 // Sample contact data
 const contactData = [

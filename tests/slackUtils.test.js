@@ -1,7 +1,7 @@
 const {
   generateSlackReportBlocks,
   sendReportToSlack,
-} = require('../slackUtils');
+} = require('../utils/slackUtils');
 
 describe('generateSlackReportBlocks function', () => {
   test('should return blocks without restore contacts link if unlikelyDataContactDetails is empty', () => {

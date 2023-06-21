@@ -20,12 +20,12 @@ const {
   findContactsWithOutdatedData,
   findContactsWithUnlikelyData,
   generateHubspotContactURL,
-} = require('./hubspotUtils');
+} = require('./utils/hubspotUtils');
 
 const {
   generateSlackReportBlocks,
   sendReportToSlack,
-} = require('./slackUtils');
+} = require('./utils/slackUtils');
 
 // Start the server
 app.listen(port, () => {
