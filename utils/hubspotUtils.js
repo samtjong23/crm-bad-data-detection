@@ -5,7 +5,7 @@ const OUTDATED_DATA_THRESHOLD_YEARS = 3;
 const UNLIKELY_DATA_THRESHOLD_DAYS = 21;
 
 // Function for getting HubSpot account details
-async function getHubspotAccountDetails(accessToken) {
+function getHubspotAccountDetails(accessToken) {
   const options = {
     method: 'GET',
     hostname: 'api.hubapi.com',
